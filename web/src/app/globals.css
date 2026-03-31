@@ -1,24 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4efe7;
-  --background-strong: #e6ded1;
-  --card: rgba(255, 250, 242, 0.78);
-  --card-strong: rgba(255, 252, 247, 0.92);
-  --foreground: #142225;
-  --muted: #5d6c6d;
-  --accent: #0b7a75;
-  --accent-strong: #0f5a58;
-  --accent-soft: #d7efe9;
-  --signal: #dd6b2d;
-  --line: rgba(20, 34, 37, 0.1);
-  --shadow: 0 30px 80px rgba(34, 49, 51, 0.12);
+  --background: #f3eadf;
+  --background-strong: #e4d4c1;
+  --foreground: #162428;
+  --muted: #697274;
+  --muted-strong: #49565a;
+  --accent: #146d67;
+  --accent-strong: #0f4f4b;
+  --signal: #d36d38;
+  --line: rgba(22, 36, 40, 0.1);
+  --shadow: 0 34px 110px rgba(15, 26, 28, 0.14);
+  --shadow-soft: 0 18px 44px rgba(15, 26, 28, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-space-grotesk);
+  --font-sans: var(--font-display);
   --font-mono: var(--font-ibm-plex-mono);
 }
 
@@ -31,22 +30,34 @@ html {
 }
 
 body {
-  background: var(--background);
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(20, 109, 103, 0.14), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(211, 109, 56, 0.12), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 34%),
+    linear-gradient(135deg, #f7efe6 0%, #efe0d0 45%, #f5ede4 100%);
   color: var(--foreground);
   font-family:
-    var(--font-space-grotesk),
     "PingFang SC",
     "Hiragino Sans GB",
     "Microsoft YaHei",
     "Noto Sans CJK SC",
     "Source Han Sans SC",
     sans-serif;
-  background-image:
-    radial-gradient(circle at top left, rgba(11, 122, 117, 0.15), transparent 24%),
-    radial-gradient(circle at 85% 15%, rgba(221, 107, 45, 0.14), transparent 18%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 45%),
-    linear-gradient(120deg, #f4efe7 0%, #ece3d6 48%, #efe7dd 100%);
   text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(22, 36, 40, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 36, 40, 0.035) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 92%);
 }
 
 a,
@@ -64,44 +75,151 @@ select {
 
 button:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+a:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--accent) 72%, white 28%);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(11, 122, 117, 0.16);
+  background: rgba(20, 109, 103, 0.16);
 }
 
-.glass-card {
-  background: var(--card);
+.display-font {
+  font-family:
+    var(--font-display),
+    "Songti SC",
+    "STSong",
+    "Noto Serif CJK SC",
+    serif;
+}
+
+.studio-shell {
+  position: relative;
+}
+
+.studio-grid {
+  background-image:
+    linear-gradient(rgba(22, 36, 40, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 36, 40, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.hero-panel,
+.studio-panel {
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.74), rgba(252, 247, 241, 0.9));
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 }
 
-.metric-chip {
-  border: 1px solid rgba(11, 122, 117, 0.2);
-  background: linear-gradient(180deg, rgba(215, 239, 233, 0.8), rgba(255, 250, 242, 0.92));
+.studio-inset,
+.preview-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(251, 247, 242, 0.92));
+  box-shadow: var(--shadow-soft);
 }
 
-.grid-lines {
-  background-image:
-    linear-gradient(rgba(20, 34, 37, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 34, 37, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+.studio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(22, 36, 40, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
 }
 
-.hero-sheen {
+.studio-button-primary,
+.studio-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.9rem 1.35rem;
+  font-weight: 600;
+}
+
+.studio-button-primary {
+  background: linear-gradient(135deg, var(--foreground), var(--accent-strong));
+  color: white;
+  box-shadow: 0 20px 40px rgba(15, 40, 42, 0.16);
+}
+
+.studio-button-primary:hover:not(:disabled),
+.studio-button-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.studio-button-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.studio-button-secondary {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--foreground);
+}
+
+.studio-upload {
   position: relative;
-  overflow: hidden;
+  border: 1px dashed rgba(22, 36, 40, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(20, 109, 103, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(246, 238, 229, 0.88));
+  box-shadow: var(--shadow-soft);
 }
 
-.hero-sheen::after {
+.studio-upload[data-active="true"] {
+  border-color: rgba(20, 109, 103, 0.42);
+  box-shadow: 0 28px 56px rgba(20, 109, 103, 0.16);
+  transform: translateY(-2px);
+}
+
+.progress-fill {
+  position: relative;
+  background: linear-gradient(90deg, var(--accent), var(--signal));
+}
+
+.progress-fill.is-running::after {
   content: "";
   position: absolute;
-  inset: auto -10% -45% 35%;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 68%);
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.68), transparent);
+  animation: sweep 1.8s linear infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,4 +1,6 @@
-# Media Cleaner Lab
+# JINGYING STUDIO
+
+副标题：净影工坊
 
 本项目是一个本地优先的媒体清理工具网站，面向图片和视频中的文字、水印、字幕去除场景。
 
@@ -122,7 +124,7 @@ http://localhost:3000
 
 ### 后端
 
-可选环境变量定义在 [`engine/app/config.py`](/d:/Users/g1327/Desktop/github-pro/engine/app/config.py)：
+可选环境变量定义在 [`engine/app/config.py`](engine/app/config.py)：
 
 ```text
 MEDIA_CLEANER_DATA_DIR
@@ -145,7 +147,7 @@ MEDIA_CLEANER_APP_VERSION
 NEXT_PUBLIC_ENGINE_URL
 ```
 
-示例文件见 [web/.env.example](/d:/Users/g1327/Desktop/github-pro/web/.env.example)。
+示例文件见 [`web/.env.example`](web/.env.example)。
 
 ## 数据与持久化
 
@@ -177,11 +179,11 @@ NEXT_PUBLIC_ENGINE_URL
 ```
 
 关键文件：
-- 前端工作台：[web/src/components/cleaner-studio.tsx](/d:/Users/g1327/Desktop/github-pro/web/src/components/cleaner-studio.tsx)
-- 后端入口：[engine/app/main.py](/d:/Users/g1327/Desktop/github-pro/engine/app/main.py)
-- 图片算法：[engine/app/algorithms/image_cleaner.py](/d:/Users/g1327/Desktop/github-pro/engine/app/algorithms/image_cleaner.py)
-- 视频算法：[engine/app/algorithms/video_cleaner.py](/d:/Users/g1327/Desktop/github-pro/engine/app/algorithms/video_cleaner.py)
-- 任务管理：[engine/app/services/job_manager.py](/d:/Users/g1327/Desktop/github-pro/engine/app/services/job_manager.py)
+- 前端工作台：[`web/src/components/cleaner-studio.tsx`](web/src/components/cleaner-studio.tsx)
+- 后端入口：[`engine/app/main.py`](engine/app/main.py)
+- 图片算法：[`engine/app/algorithms/image_cleaner.py`](engine/app/algorithms/image_cleaner.py)
+- 视频算法：[`engine/app/algorithms/video_cleaner.py`](engine/app/algorithms/video_cleaner.py)
+- 任务管理：[`engine/app/services/job_manager.py`](engine/app/services/job_manager.py)
 
 ## 已做验证
 
@@ -228,4 +230,3 @@ npm run build
 1. 引入鉴权、配额和任务归属
 2. 拆分 Redis / worker 队列
 3. 接入对象存储，并把算法升级为 classical + 可插拔模型增强
-

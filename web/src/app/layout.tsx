@@ -14,8 +14,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "净影工坊",
-  description: "本地优先的图片与视频去文字、去字幕、去水印工具台。",
+  title: "净影工坊 | JINGYING STUDIO",
+  description: "净影工坊 JINGYING STUDIO，本地优先的图片与视频去文字、去字幕、去水印工作台。",
 };
 
 export default function RootLayout({

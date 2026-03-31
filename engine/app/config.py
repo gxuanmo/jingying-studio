@@ -27,10 +27,9 @@ def load_settings(base_dir: Path) -> Settings:
         os.getenv("MEDIA_CLEANER_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")
     )
     return Settings(
-        app_title=os.getenv("MEDIA_CLEANER_APP_TITLE", "Media Cleaner Engine"),
+        app_title=os.getenv("MEDIA_CLEANER_APP_TITLE", "Jingying Studio Engine"),
         app_version=os.getenv("MEDIA_CLEANER_APP_VERSION", "0.2.0"),
         data_dir=data_dir,
         metadata_db_path=metadata_db_path,
         cors_origins=cors_origins,
     )
-

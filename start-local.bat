@@ -47,14 +47,14 @@ if "%DRY_RUN%"=="1" (
 )
 
 echo.
-echo [done] Media Cleaner Lab is starting.
+echo [done] JINGYING STUDIO is starting.
 echo [open] http://localhost:3000
 exit /b 0
 
 :banner
 echo.
 echo ==============================================
-echo   Media Cleaner Lab - One Click Starter
+echo   JINGYING STUDIO - One Click Starter
 echo ==============================================
 echo   Repo: %REPO_ROOT%
 echo   Engine: %ENGINE_URL%
@@ -122,10 +122,10 @@ exit /b 0
 :launch_engine
 echo [4/6] Launching backend window...
 if "%DRY_RUN%"=="1" (
-  echo start "Media Cleaner Engine" cmd /k "cd /d ""%ENGINE_DIR%"" ^&^& python -m uvicorn app.main:app --reload"
+  echo start "Jingying Studio Engine" cmd /k "cd /d ""%ENGINE_DIR%"" ^&^& python -m uvicorn app.main:app --reload"
   exit /b 0
 )
-start "Media Cleaner Engine" cmd /k "cd /d ""%ENGINE_DIR%"" && python -m uvicorn app.main:app --reload"
+start "Jingying Studio Engine" cmd /k "cd /d ""%ENGINE_DIR%"" && python -m uvicorn app.main:app --reload"
 if errorlevel 1 (
   echo [error] Failed to launch backend window.
   exit /b 1
@@ -135,10 +135,10 @@ exit /b 0
 :launch_web
 echo [5/6] Launching frontend window...
 if "%DRY_RUN%"=="1" (
-  echo start "Media Cleaner Web" cmd /k "cd /d ""%WEB_DIR%"" ^&^& set NEXT_PUBLIC_ENGINE_URL=%ENGINE_URL% ^&^& npm run dev"
+  echo start "Jingying Studio Web" cmd /k "cd /d ""%WEB_DIR%"" ^&^& set NEXT_PUBLIC_ENGINE_URL=%ENGINE_URL% ^&^& npm run dev"
   exit /b 0
 )
-start "Media Cleaner Web" cmd /k "cd /d ""%WEB_DIR%"" && set NEXT_PUBLIC_ENGINE_URL=%ENGINE_URL% && npm run dev"
+start "Jingying Studio Web" cmd /k "cd /d ""%WEB_DIR%"" && set NEXT_PUBLIC_ENGINE_URL=%ENGINE_URL% && npm run dev"
 if errorlevel 1 (
   echo [error] Failed to launch frontend window.
   exit /b 1

@@ -392,7 +392,7 @@ export function CleanerStudio() {
           <div className="relative flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[var(--muted)]">
-                JINGYING STUDIO / LOCAL FIRST / CLASSICAL ENGINE
+                JINGYING STUDIO / 净影工坊 / LOCAL FIRST
               </p>
               <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
                 中文友好的去字、去字幕、去水印工作台

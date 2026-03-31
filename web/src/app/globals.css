@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4efe7;
+  --background-strong: #e6ded1;
+  --card: rgba(255, 250, 242, 0.78);
+  --card-strong: rgba(255, 252, 247, 0.92);
+  --foreground: #142225;
+  --muted: #5d6c6d;
+  --accent: #0b7a75;
+  --accent-strong: #0f5a58;
+  --accent-soft: #d7efe9;
+  --signal: #dd6b2d;
+  --line: rgba(20, 34, 37, 0.1);
+  --shadow: 0 30px 80px rgba(34, 49, 51, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-space-grotesk),
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans CJK SC",
+    "Source Han Sans SC",
+    sans-serif;
+  background-image:
+    radial-gradient(circle at top left, rgba(11, 122, 117, 0.15), transparent 24%),
+    radial-gradient(circle at 85% 15%, rgba(221, 107, 45, 0.14), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 45%),
+    linear-gradient(120deg, #f4efe7 0%, #ece3d6 48%, #efe7dd 100%);
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+input,
+select {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 72%, white 28%);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(11, 122, 117, 0.16);
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.metric-chip {
+  border: 1px solid rgba(11, 122, 117, 0.2);
+  background: linear-gradient(180deg, rgba(215, 239, 233, 0.8), rgba(255, 250, 242, 0.92));
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(20, 34, 37, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 34, 37, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.hero-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-sheen::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -45% 35%;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 68%);
+  pointer-events: none;
+}

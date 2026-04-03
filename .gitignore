@@ -11,8 +11,15 @@ engine/data/metadata.sqlite3
 engine/data/smoke/
 engine/data/api-smoke/
 engine/data/final-smoke/
+engine/data/mode-smoke/
 engine/app/__pycache__/
 engine/app/algorithms/__pycache__/
 engine/app/schemas/__pycache__/
 engine/app/services/__pycache__/
 *.pyc
+edge-dom-*.log
+edge-dom-*.html
+edge-headless.*
+engine-server.*
+web-server.*
+ui-check.png
